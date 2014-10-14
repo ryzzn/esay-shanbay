@@ -3,6 +3,7 @@
  */
 
 var etho_pre_url = 'http://www.etymonline.com/index.php?term='
+var youdao_url = 'http://m.youdao.com/singledict?dict=collins&le=eng&more=false&q='
 
 var keys=['4d8125eb-c2a2-441a-8eae-3210da24ed94','b724c154-a86b-4c8e-a48d-22c85d391428','822c717c-3bbe-40b4-9b46-bcab7f76ff88','e2a54c04-201b-4605-99e6-a872ec27130d']
 
@@ -22,6 +23,19 @@ function getOnlineEthology(term,callback){
         if (xhr.readyState == 4 ) {
             var roots = parseEtymology( xhr.responseText);
             callback(roots)
+        }
+    }
+    xhr.send();
+}
+
+function getOnlineYoudao(term, callback) {
+    var url = youdao_url + term.toLowerCase()
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 ) {
+            //var roots = parseEtymology(xhr.responseText);
+            callback(xhr.responseText)
         }
     }
     xhr.send();

@@ -34,6 +34,10 @@ function wrapper(title){
 }
 
 function addButtons(){
+    if($('#dictionary.youdao').length == 0) {
+        $('#learning_word').after($('<div id="dictionary" class="youdao row"></div>'))
+        $('#dictionary.youdao').html(wrapper('有道词典'))
+    }
     if($('#roots .well').length==0)
         $('#roots').html(wrapper('词根'))
     if($('#affix .word,#affix .well').length==0)
@@ -49,6 +53,7 @@ function replaceButtons(){
 }
 
 function searchOnline() {
+    getYoudao();
     if ($('#roots .exist').length==0&&(undefined == ls()['hider'] || ls()['hider'].search("roots") == -1)) {
         if (ls()['etym'] != 'webster')
             getEthology();
@@ -228,4 +233,3 @@ $(document).on("DOMNodeInserted", '#learning-box',function () {
 
     event.stopPropagation();
 });
-

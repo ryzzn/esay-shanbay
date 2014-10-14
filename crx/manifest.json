@@ -21,7 +21,7 @@
         {
             "matches": ["http://*.shanbay.com/**review**"],
             "css": ["css/style.css"],
-            "js": ["js/jquery-2.0.3.min.js", "js/common.js", "js/etymology.js", "js/webster.js", "js/main.js"]
+            "js": ["js/jquery-2.0.3.min.js", "js/common.js", "js/etymology.js", "js/webster.js", "js/main.js", "js/youdao.js"]
         },
         {
             "css": [ "css/shanbay.css" ],
